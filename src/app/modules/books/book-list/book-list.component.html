@@ -4,7 +4,7 @@
         <ul>
             @for (book of books; track $index) {
             <div class="book">
-                <a [routerLink]="['/books/', book.id]">
+                <a [routerLink]="['/user-view/book-detail/', book.id]">
                 <li>
                     <div class="datos">
                         <img src="{{book.pictureUrl}}" alt="Portada de lista-libros">
@@ -17,7 +17,7 @@
                 </a>
             </div>
             } @empty {
-                <h2>No hay libros disponibles</h2>
+                <h2>No hay libros disponibles.</h2>
             }
         </ul>
     </div>

@@ -1,9 +1,9 @@
 .lista-libros {
     padding-top: 20px;
     margin-top: -8px;
-    margin-right:-8px;;
     margin-left: 193px;
     background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif
 }
 
 .lista-libros h2 {

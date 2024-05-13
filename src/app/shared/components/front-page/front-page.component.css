@@ -1,0 +1,22 @@
+.panel {
+    background-color: antiquewhite;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50%;
+    padding-top: 200px;
+    padding-left: 50px;
+}
+
+#carouselExampleFade {
+    border: 10px solid maroon;
+    border-radius: 10px;
+    height: 600px;
+    width: 800px;
+}
+
+.carousel-item {
+    height: 580px;
+    width: 800px;
+}
+
+

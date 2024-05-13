@@ -2,7 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path:'books',
-        loadChildren:() => import('./modules/books/books.routes').then(m => m.BOOKS_ROUTES)
+        path:'',
+        loadChildren:() => import('./modules/layouts/authenticationlayout/authentication.routes').then(m => m.USER_ROUTES)
+    },
+    {
+        path:'user-view',
+        loadChildren:() => import('./modules/layouts/userlayout/userlayout.routes').then(m => m.USER_ROUTES)
     }
 ];

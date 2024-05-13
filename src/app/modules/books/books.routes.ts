@@ -4,5 +4,5 @@ import { BookDetailComponent } from "./book-detail/book-detail.component";
 
 export const BOOKS_ROUTES: Routes = [
     { path: '', component: BookListComponent },
-    { path: ':slug', component: BookDetailComponent }
+    { path: 'book-detail/:slug', component: BookDetailComponent }
 ]
