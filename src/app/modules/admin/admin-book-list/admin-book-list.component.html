@@ -1,0 +1,35 @@
+<div class="book-list">
+    <h2>Libros Existentes</h2>
+
+    <a [routerLink]="['/admin-view/book-creation']">
+        <button>Añadir nuevo libro</button>
+    </a>
+
+    <div class="books">
+        <ul>
+            @for (book of books; track $index) {
+            <div class="book">
+                
+                <li>
+                    <div class="info">
+                        <img src="{{book.pictureUrl}}" alt="Portada del libro">
+                        <div class="letters">
+                            <h4><b>Identificador:</b> {{book.id}}</h4>
+                            <h4><b>Título:</b>  {{book.title}}</h4>
+                            <div class="buttons">
+                                <a [routerLink]="['/admin-view/book-modification/', book.id]">
+                                    <button class="action-button">Modificar</button>
+                                </a>
+                                <button class="action-button delete" (click)="deleteBook(book.id)">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+            </div>
+            } @empty {
+                <h2>No hay libros disponibles.</h2>
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+.user-list {
+    padding-top: 20px;
+    margin-top: -8px;
+    margin-left: 193px;
+    padding-bottom: 10%;
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif
+}
+
+button {
+    background-color: #4CAF50; 
+    border: none; 
+    color: white; 
+    padding: 15px 441px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 20px 2px; 
+    cursor: pointer; 
+    border-radius: 12px; 
+    transition-duration: 0.4s; 
+    margin-left: 230px;
+}
+
+button:hover {
+    background-color: #45a049; 
+    color: white; 
+    border-radius: 12px; 
+}
+
+.user-list h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.users {
+    display: grid;
+    margin-right: 5%;
+    background-color: antiquewhite;
+}
+
+.users ul {
+    list-style-type: none;
+}
+
+.user {
+    border: 10px solid black;
+    border-radius: 10px;
+    padding-right: 290px;
+    background-color: aliceblue;
+    border: 1px solid black; 
+    margin-bottom: 3%;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.user a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.user img {
+    width: 200px; 
+    height: 200px; 
+    margin-bottom: 10px; 
+}
+
+.info {
+    display: flex;
+    height: 210px;
+    flex-direction: row;
+    margin-left: 200px;
+    align-items: center;
+}
+
+.letters {
+    padding-left: 100px;
+    padding-top: 20px;
+}
+
+.letters h3 {
+    font-size: 45px;
+}
+
+.buttons {
+    display: flex;
+    margin-left: -25px;
+    justify-content: center; 
+    padding-bottom: 10px;
+}
+
+.action-button {
+    background-color: blue; 
+    border: none; 
+    color: white; 
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border-radius: 6px;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+    margin: 10px; 
+}
+
+.action-button.delete {
+    background-color: red;
+}
+
+.action-button:hover {
+    background-color: navy; 
+}
+
+.action-button.delete:hover {
+    background-color: darkred; 
+}

@@ -1,0 +1,40 @@
+<div class="user-list">
+    <h2>Usuarios registrados</h2>
+
+
+        <button [routerLink]="['/admin-view/user-creation']">Añadir nuevo usuario</button>
+    
+
+    <div class="users">
+        <ul>
+            @for (user of libraryUsers; track $index) {
+            <div class="user">
+                
+                <li>
+                    <div class="info">
+                        <img src="https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png" alt="Portada del usuario">
+                        <div class="letters">
+                            <h4><b>Identificador:</b> {{user.id}}</h4>
+                            <h4><b>Nombre de usuario:</b>  {{user.userName}}</h4>
+                             @if (user.role==0) {
+                                 <h4><b>Rol:</b> Administrador</h4>
+                            } @else {
+                                <h4><b>Rol:</b> Usuario</h4>
+                            }
+                            <div class="buttons">
+                                <a [routerLink]="['/admin-view/user-modification/', user.id]">
+                                    <button class="action-button">Modificar</button>
+                                </a>
+                                <button class="action-button delete" (click)="deleteLibraryUser(user.id)">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+            </div>
+            } @empty {
+                <h2>No hay usuarios registrados.</h2>
+            }
+        </ul>
+    </div>
+</div>

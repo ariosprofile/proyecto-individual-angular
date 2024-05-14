@@ -1,0 +1,22 @@
+<div class="newBookForm">
+    <form [formGroup]="newBookForm" (submit)="createBook()">
+
+        <h2>Ingresar datos del nuevo libro:</h2>
+        <label for="author">Autor: </label>
+        <input id="author" type="text" formControlName="author">
+
+        <label for="genre">Género: </label>
+        <input id="genre" type="text" formControlName="genre">
+
+        <label for="title">Título: </label>
+        <input id="title" type="text" formControlName="title">
+
+        <label for="synopsis">Sinopsis: </label>
+        <input id="synopsis" type="text" formControlName="synopsis">
+
+        <label for="pictureUrl">Url de la portada: </label>
+        <input id="pictureUrl" type="text" formControlName="pictureUrl">
+
+        <button type="submit" class="library-button">Crear nuevo libro</button>  
+    </form>
+</div>

@@ -5,7 +5,7 @@ export const USER_ROUTES: Routes = [
     {
         path:'', component: UserLayoutComponent, children: [
             { path:'', 
-                loadChildren:() => import('../../books/books.routes').then(m => m.BOOKS_ROUTES)
+                loadChildren:() => import('../../user/books/books.routes').then(m => m.BOOKS_ROUTES)
             }
         ]
     }

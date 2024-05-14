@@ -1,17 +1,17 @@
 @if (book) {
     <div class="book">
-        <div class="detalles">
+        <div class="detail">
             <div class="prim">
-                <h2>{{book.title}}</h2>
                 <img src="{{book.pictureUrl}}" alt="Imagen del libro">
             </div>
             <div class="seg">
+                <h3><span>Título:</span> {{book.title}}</h3>
                 <h3><span>Autor:</span> {{book.author}}</h3>
                 <h3><span>Género:</span> {{book.genre}}</h3>
                 <h3><span>Sinopsis:</span> {{book.synopsis}}</h3>
             </div>
         </div>
-        <div class="opciones">
+        <div class="options">
             <button>Comprar en formato PDF.</button>
             <button>Comprar en formato ePub.</button>
             <button>Alquilar libro con entrega a domicilio.</button>

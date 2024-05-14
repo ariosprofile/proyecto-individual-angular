@@ -1,14 +1,14 @@
-<div class="lista-libros">
+<div class="book-list">
     <h2>Libros Disponibles</h2>
-    <div class="libros">
+    <div class="books">
         <ul>
             @for (book of books; track $index) {
             <div class="book">
                 <a [routerLink]="['/user-view/book-detail/', book.id]">
                 <li>
-                    <div class="datos">
+                    <div class="info">
                         <img src="{{book.pictureUrl}}" alt="Portada de lista-libros">
-                        <div class="letras">
+                        <div class="letters">
                             <h3>{{book.title}}</h3>
                             <h4>{{book.author}}</h4>
                         </div>

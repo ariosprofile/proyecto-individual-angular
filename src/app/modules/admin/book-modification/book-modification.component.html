@@ -1,0 +1,46 @@
+@if (book) {
+    <div class="book">
+        <div class="detail">
+            <div class="prim">
+                <img src="{{book.pictureUrl}}" alt="Imagen del libro">
+            </div>
+            <div class="seg">
+                <h4><b>Identificador:</b> {{book.id}}</h4>
+                <h4><b>Título:</b>  {{book.title}}</h4>
+                <h4><b>Autor:</b> {{book.author}}</h4>
+                <h4><b>Género:</b> {{book.genre}}</h4>
+                <h4><b>Sinopsis:</b> {{book.synopsis}}</h4>
+                <h4><b>Url de la portada:</b> {{book.pictureUrl}}</h4>
+            </div>
+        </div>
+
+        <div class="updateForm">
+
+            <form [formGroup]="updateBookForm" (submit)="modifyBook(book.id)">
+
+                <h2>Modificar datos del libro:</h2>
+                <label for="author">Autor: </label>
+                <input id="author" type="text" formControlName="author">
+        
+                <label for="genre">Género: </label>
+                <input id="genre" type="text" formControlName="genre">
+
+                <label for="title">Título: </label>
+                <input id="title" type="text" formControlName="title">
+
+                <label for="synopsis">Sinopsis: </label>
+                <input id="synopsis" type="text" formControlName="synopsis">
+
+                <label for="pictureUrl">Url de la portada: </label>
+                <input id="pictureUrl" type="text" formControlName="pictureUrl">
+        
+                <button type="submit" class="library-button">Aplicar cambios</button>
+                
+            </form>
+        </div>
+    </div>
+} @else {
+    <div class="noBook">
+        <h2>Libro no encontrado.</h2>
+    </div>
+}
