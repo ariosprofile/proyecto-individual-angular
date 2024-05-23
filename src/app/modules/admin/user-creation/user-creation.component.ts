@@ -46,6 +46,7 @@ export class UserCreationComponent implements OnInit, OnDestroy{
   createUser() {
     if (this.newUserForm.valid) {
       const newUser : LibraryUser = {
+        id: 0,
         address: this.newUserForm.value.address ?? '',
         email: this.newUserForm.value.email ?? '',
         password: this.newUserForm.value.password ?? '',

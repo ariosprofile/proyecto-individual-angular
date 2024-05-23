@@ -1,5 +1,5 @@
 export interface LibraryUser {
-    id?: number;
+    id: number;
     address: string;
     email: string;
     password: string;
