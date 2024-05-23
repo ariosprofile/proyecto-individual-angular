@@ -1,11 +1,33 @@
 <div class="book-list">
     <h2>Libros Disponibles</h2>
+
+    <div class="options">
+        <div class="optionFormat">
+            <label for="genreSelect">Filtrar por género</label>
+            <select #searchGenre class="genreFilter" id="genreSelect">
+                <option value="" selected>Todos los géneros</option>
+                @for (genre of uniqueGenres; track $index) {
+                    <option value="{{genre}}">{{genre}}</option>
+                } 
+            </select>
+            <button class="search-button" (click)="searchByGenre(searchGenre.value)" >Buscar</button>
+        </div>
+        <div class="optionFormat">
+            <label for="titleInput">Buscar por título</label>
+            <input #searchTitle type="text" id="titleInput">
+            <button class="search-button" (click)="searchByTitle(searchTitle.value)">Buscar</button>
+        </div>
+        <div class="optionFormat">
+            <label for="authorInput">Buscar por autor</label>
+            <input #searchAuthor type="text" id="authorInput">
+            <button class="search-button" (click)="searchByAuthor(searchAuthor.value)">Buscar</button>
+        </div>
+    </div>
+
     <div class="books">
-        <ul>
             @for (book of books; track $index) {
             <div class="book">
                 <a [routerLink]="['/user-view/book-detail/', book.id]">
-                <li>
                     <div class="info">
                         <img src="{{book.pictureUrl}}" alt="Portada de lista-libros">
                         <div class="letters">
@@ -13,12 +35,10 @@
                             <h4>{{book.author}}</h4>
                         </div>
                     </div>
-                </li>
                 </a>
             </div>
             } @empty {
                 <h2>No hay libros disponibles.</h2>
             }
-        </ul>
     </div>
 </div>

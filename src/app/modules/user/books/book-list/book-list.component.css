@@ -1,31 +1,9 @@
 .book-list {
     padding-top: 20px;
-    margin-top: -8px;
-    margin-left: 193px;
+    margin-left: 200px;
     background-color: antiquewhite;
-    font-family: 'Times New Roman', Times, serif
-}
-
-button {
-    background-color: #4CAF50; 
-    border: none; 
-    color: white; 
-    padding: 15px 441px; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-    font-size: 16px; 
-    margin: 20px 2px; 
-    cursor: pointer; 
-    border-radius: 12px; 
-    transition-duration: 0.4s; 
-    margin-left: 230px;
-}
-
-button:hover {
-    background-color: #45a049; 
-    color: white; 
-    border-radius: 12px; 
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 40%;
 }
 
 .book-list h2 {
@@ -33,24 +11,70 @@ button:hover {
     font-size: 50px;
 }
 
-.books {
-    display: grid;
-    margin-right: 5%;
-    background-color: antiquewhite;
+.options {
+    margin-left: 8%;
+    display: flex;
+    flex-direction: row;
 }
 
-.books ul {
-    list-style-type: none;
+.optionFormat {
+    margin-bottom: 20px;
+    margin-left: 2%;
+}
+
+.optionFormat label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.optionFormat input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.optionFormat select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.optionFormat select option {
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: #007bff;
+    margin-top: 10px;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.books {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .book {
+    border-radius: 6px;
     padding: 10px;
-    padding-right: 195px;
     background-color: aliceblue;
-    border: 1px solid black; 
+    border: 2px solid black; 
     margin-bottom: 5%;
-    margin-right: 200px;
-    margin-left: 200px;
 }
 
 .book a {
@@ -60,18 +84,16 @@ button:hover {
 }
 
 .info {
+    margin-right: 10%;
+    margin-left: 10%;
     display: flex;
     flex-direction: row;
     margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 200px;
     align-items: center;
 }
 
 .letters {
-    padding: 70px;
-    padding-top: 110px;
-    padding-left: 100px;
+    padding-left: 20%;
 }
 
 .letters h3 {
@@ -84,37 +106,23 @@ button:hover {
     margin-bottom: 10px; 
 }
 
-.buttons {
-    display: flex;
-    padding-top: 50px;
-    margin-left: -25px;
-    justify-content: center; 
-}
+@media (max-width: 830px) {
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0px;
+    }
 
-.action-button {
-    background-color: blue; 
-    border: none; 
-    color: white; 
-    padding: 10px 20px;
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-    font-size: 16px; 
-    font-weight: bold; 
-    border-radius: 6px;
-    cursor: pointer; 
-    transition: background-color 0.3s, color 0.3s; 
-    margin: 10px; 
-}
+    .letters {
+        padding-left: 0;
+        margin-top: 10px;
+    }
 
-.action-button.delete {
-    background-color: red;
-}
+    .letters h3 {
+        font-size: 30px;
+    }
 
-.action-button:hover {
-    background-color: navy; 
-}
-
-.action-button.delete:hover {
-    background-color: darkred; 
+    .letters h4 {
+        font-size: 25px;
+    }
 }

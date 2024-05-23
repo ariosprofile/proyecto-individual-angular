@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { RouterLink } from '@angular/router';
+import { APP_ROUTES } from '../../../core/routes/aplication-routes';
 
 @Component({
   selector: 'app-admin-nav-bar',
@@ -12,5 +12,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './admin-nav-bar.component.css'
 })
 export class AdminNavBarComponent {
+
+  adminStartPage = APP_ROUTES.adminUserList;
+  adminBookCrud = APP_ROUTES.userBookList;
+  loginPage = APP_ROUTES.loginPage;
 
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BookService } from '../../../core/services/bookservice/book.service';
 import { Book } from '../../../core/models/book';
+import { SubscriptionLike } from 'rxjs';
 
 
 @Component({
@@ -13,27 +14,33 @@ import { Book } from '../../../core/models/book';
   templateUrl: './book-creation.component.html',
   styleUrl: './book-creation.component.css'
 })
-export class BookCreationComponent {
+export class BookCreationComponent implements OnInit, OnDestroy {
   
-  newBookForm = new FormGroup({
-    author : new FormControl(''),
-    genre: new FormControl(''),
-    title: new FormControl(''),
-    synopsis: new FormControl(''),
-    pictureUrl: new FormControl('')
-  });
+  newBookForm!: FormGroup;
+  subscriptions: SubscriptionLike[] = [];
 
   constructor(
     private bookService : BookService,
     private formBuilder : FormBuilder
-  ){
+  ){}
+
+  ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(
+      (subscription) => subscription.unsubscribe());
+  }
+
+  initializeForm() : void {
     this.newBookForm = this.formBuilder.group({
       author: ['', Validators.required],
       genre: ['', Validators.required],
       title: ['', Validators.required],
       synopsis: ['', Validators.required],
       pictureUrl: ['', Validators.required]
-    })
+    });
   }
 
   createBook() {
@@ -47,14 +54,12 @@ export class BookCreationComponent {
         stockTypesIds: []
       };
 
+    this.subscriptions.push(
     this.bookService.createBook(newBook).subscribe(      
     () => {
-      console.log("Libro creado correctamente.")
-    },
-    (error) => {
-      console.log('Error al crear el libro', error);
+      this.newBookForm.reset()
     }
-  );
+    ));
     }
   }
 }

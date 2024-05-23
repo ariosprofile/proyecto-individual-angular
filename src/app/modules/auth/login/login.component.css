@@ -1,50 +1,77 @@
 .loginForm {
-    margin-top: -500px;
-    margin-left: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; 
+  background-color: antiquewhite;
 }
 
-.loginForm h2 {
-    font-size: 18pt;
-    margin-bottom: 15px;
-  }
-  
-  label, input {
-    display: block;
-  }
-  label {
-    color: var(--secondary-color);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12pt;
-  }
-  input {
-    font-size: 16pt;
-    margin-bottom: 15px;
-    padding: 10px;
-    width: 400px;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: solid .3px;
-  }
+.form {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 50px;
+  background-color: aliceblue;
+  max-width: 400px; 
+  width: 100%;
+  box-sizing: border-box;
+}
 
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12pt;
+}
+
+input {
+  display: block;
+  width: calc(100% - 20px); 
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: solid 0.3px #ccc;
+  font-size: 16pt;
+}
 
 .library-button {
-    background-color: #4CAF50; 
-    border: 1px solid #4CAF50; 
-    color: white;
-    padding: 12px 24px; 
-    text-align: center; 
-    text-decoration: none;
-    display: inline-block; 
-    font-size: 16px; 
-    font-weight: bold; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    transition: background-color 0.3s, color 0.3s; 
+  background-color: #4CAF50;
+  border: 1px solid #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.library-button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  .form {
+      padding: 20px; 
   }
-  
-  .library-button:hover {
-    background-color: #45a049;
+
+  label {
+      font-size: 10pt; 
   }
-  
+
+  input {
+      font-size: 14pt; 
+  }
+
+  .library-button {
+      padding: 10px 20px; 
+      font-size: 14px; 
+  }
+}
+

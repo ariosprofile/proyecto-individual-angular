@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LibraryUser } from '../../../core/models/library-user';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LibraryUserService } from '../../../core/services/libraryuserservice/library-user.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-user-creation',
@@ -12,21 +13,26 @@ import { LibraryUserService } from '../../../core/services/libraryuserservice/li
   templateUrl: './user-creation.component.html',
   styleUrl: './user-creation.component.css'
 })
-export class UserCreationComponent {
+export class UserCreationComponent implements OnInit, OnDestroy{
 
-  newUserForm = new FormGroup({
-    address: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    userName: new FormControl(''),
-    creditCard: new FormControl(''),
-    role: new FormControl()
-  });
+  newUserForm!: FormGroup;
+  subscriptions: SubscriptionLike[] = [];
 
   constructor(
     private libraryUserService : LibraryUserService,
     private formBuilder : FormBuilder
-  ){
+  ){}
+
+  ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(
+      (subscription) => subscription.unsubscribe());
+  }
+
+  initializeForm() : void {
     this.newUserForm = this.formBuilder.group({
       address: ['', Validators.required],
       email: ['', Validators.required],
@@ -49,14 +55,13 @@ export class UserCreationComponent {
         leasedBooksIds: []
       };
 
+    this.subscriptions.push(
     this.libraryUserService.createLibraryUser(newUser).subscribe(      
     () => {
+      this.newUserForm.reset();
       console.log("Usuario creado correctamente.")
-    },
-    (error) => {
-      console.log('Error al crear el usuario', error);
     }
-  );
-    }
+    ));
   }
+}
 }

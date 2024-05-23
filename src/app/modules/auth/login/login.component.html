@@ -1,13 +1,14 @@
 <div class="loginForm">
-    <h2>Iniciar Sesión</h2>
-    <form [formGroup]="loginForm" (submit)="checkLogin()">
+    <div class="form">
+        <h2>Iniciar Sesión</h2>
+        <form [formGroup]="loginForm" (submit)="checkLogin()">
+            <label for="user-name">Nombre de usuario:</label>
+            <input id="user-name" type="text" formControlName="userName">
 
-        <label for="user-name">Nombre de usuario: </label>
-        <input id="user-name" type="text" formControlName="userName">
+            <label for="password">Contraseña:</label>
+            <input id="password" type="password" formControlName="password"> <!-- Use type="password" for password input -->
 
-        <label for="password">Contraseña: </label>
-        <input id="password" type="text" formControlName="password">
-
-        <button type="submit" class="library-button">Entrar</button>
-    </form>
+            <button type="submit" class="library-button">Entrar</button>
+        </form>
+    </div>
 </div>

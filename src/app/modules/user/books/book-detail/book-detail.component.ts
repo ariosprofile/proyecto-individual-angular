@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Book } from '../../../../core/models/book';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../../../../core/services/bookservice/book.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,8 +11,10 @@ import { BookService } from '../../../../core/services/bookservice/book.service'
   templateUrl: './book-detail.component.html',
   styleUrl: './book-detail.component.css'
 })
-export class BookDetailComponent implements OnInit{
+export class BookDetailComponent implements OnInit, OnDestroy {
+
   @Input() book?: Book;
+  subscriptions: SubscriptionLike[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +25,15 @@ export class BookDetailComponent implements OnInit{
     this.getBook();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(
+      (subscription) => subscription.unsubscribe());
+  }
+
   getBook() : void {
     const id = Number(this.route.snapshot.paramMap.get('slug'));
-    this.bookService.getBook(id).subscribe(book => this.book = book)
+    this.subscriptions.push(
+    this.bookService.getBook(id).subscribe(book => this.book = book));
   }
 
 }

@@ -3,31 +3,46 @@
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
     background-color: brown;
+    padding: 20px 0;
 }
 
 .banner h1 {
-    font-size: 60px;
+    font-size: 3rem;
+    color: white;
+    margin: 0;
 }
 
 .panel {
     background-color: antiquewhite;
-    height: 100%;
-    width: 100%;
-    padding-bottom: 83px;
-    padding-top: 70px;
-    padding-left: 50px;
+    padding: 45px;
 }
 
 #carouselExampleFade {
     border: 10px solid maroon;
     border-radius: 10px;
-    height: 600px;
-    width: 800px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .carousel-item {
-    height: 580px;
-    width: 800px;
+    max-height: 600px;
 }
 
+.carousel-item img {
+    max-height: 580px;
+    width: auto;
+    margin: 0 auto;
+}
 
+.separator {
+    width: 100%; 
+    height: 2px; 
+    background-color: black; 
+    margin: 20px 0; 
+}
+
+.separator2 {
+    width: 100%; 
+    height: 6px; 
+    background-color: brown; 
+}

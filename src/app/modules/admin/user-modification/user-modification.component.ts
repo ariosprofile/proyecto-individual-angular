@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { LibraryUser } from '../../../core/models/library-user';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { LibraryUserService } from '../../../core/services/libraryuserservice/library-user.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-user-modification',
@@ -13,24 +14,30 @@ import { LibraryUserService } from '../../../core/services/libraryuserservice/li
   templateUrl: './user-modification.component.html',
   styleUrl: './user-modification.component.css'
 })
-export class UserModificationComponent {
+export class UserModificationComponent implements OnInit, OnDestroy{
   
   @Input() user?: LibraryUser;
+  subscriptions: SubscriptionLike[] = [];
 
-  updateUserForm = new FormGroup({
-    address: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    userName: new FormControl(''),
-    creditCard: new FormControl(''),
-    role: new FormControl()
-  });
+  updateUserForm!: FormGroup;
 
     constructor(
       private route: ActivatedRoute,
       private libraryUserService : LibraryUserService,
       private formBuilder : FormBuilder
-    ){
+    ){}
+
+    ngOnInit(): void {
+      this.initializeForm();
+      this.getUser();
+    }
+
+    ngOnDestroy(): void {
+      this.subscriptions.forEach(
+        (subscription) => subscription.unsubscribe());
+    }
+
+    initializeForm() : void {
       this.updateUserForm = this.formBuilder.group({
         address: ['', Validators.required],
         email: ['', Validators.required],
@@ -40,14 +47,11 @@ export class UserModificationComponent {
         role: ['', Validators.required]
       })
     }
-
-    ngOnInit(): void {
-      this.getUser();
-    }
   
     getUser() : void {
       const id = Number(this.route.snapshot.paramMap.get('slug'));
-      this.libraryUserService.getLibraryUser(id).subscribe(user => this.user = user)
+      this.subscriptions.push(
+      this.libraryUserService.getLibraryUser(id).subscribe(user => this.user = user));
     }
 
     modifyUser(idUser : number | undefined) : void{
@@ -63,14 +67,13 @@ export class UserModificationComponent {
           leasedBooksIds: []
         };
 
+        this.subscriptions.push(
         this.libraryUserService.updateLibraryUser(idUser, updatedUser).subscribe(
           () => {
             this.getUser();
-          },
-          () => {
-            console.log('Libro modificado correctamente');
+            this.updateUserForm.reset();
           }
-        );
+        ));
       }
     }
 }
