@@ -1,0 +1,128 @@
+.book-list {
+    padding-top: 20px;
+    margin-left: 200px;
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 40%;
+}
+
+.book-list h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.options {
+    margin-left: 8%;
+    display: flex;
+    flex-direction: row;
+}
+
+.optionFormat {
+    margin-bottom: 20px;
+    margin-left: 2%;
+}
+
+.optionFormat label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.optionFormat input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.optionFormat select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.optionFormat select option {
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: #007bff;
+    margin-top: 10px;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.books {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.book {
+    border-radius: 6px;
+    padding: 10px;
+    background-color: aliceblue;
+    border: 2px solid black; 
+    margin-bottom: 5%;
+}
+
+.book a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.info {
+    margin-right: 10%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.letters {
+    padding-left: 20%;
+}
+
+.letters h3 {
+    font-size: 45px;
+}
+
+.book img {
+    width: auto; 
+    height: auto; 
+    margin-bottom: 10px; 
+}
+
+@media (max-width: 830px) {
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0px;
+    }
+
+    .letters {
+        padding-left: 0;
+        margin-top: 10px;
+    }
+
+    .letters h3 {
+        font-size: 30px;
+    }
+
+    .letters h4 {
+        font-size: 25px;
+    }
+}

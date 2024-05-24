@@ -1,0 +1,160 @@
+.user-list {
+    padding-top: 20px;
+    padding-bottom: 40%;
+    margin-left: 200px;
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.options {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.optionFormat {
+    margin-bottom: 20px;
+    margin-left: 2%;
+}
+
+.optionFormat label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.optionFormat input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.optionFormat select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.optionFormat select option {
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: #007bff;
+    margin-top: 10px;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+
+.addNewUserButton {
+    background-color: #4CAF50; 
+    color: white; 
+    text-align: center; 
+    font-size: 16px; 
+    margin: 40px 30px; 
+    cursor: pointer; 
+    border-radius: 12px; 
+    transition-duration: 0.4s; 
+}
+
+.addNewUserButton:hover {
+    background-color: #45a049; 
+    color: white; 
+    border-radius: 12px; 
+}
+
+.user-list h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.users {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    margin-left: 2%;
+}
+
+
+.user {
+    border-radius: 10px;
+    background-color: aliceblue;
+    border: 2px solid black;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.user a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.user img {
+    width: 200px; 
+    height: 200px; 
+    margin-bottom: 10px; 
+}
+
+.info {
+    display: flex;
+    height: 210px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.letters {
+    padding-top: 20px;
+}
+
+.letters h3 {
+    font-size: 45px;
+}
+
+.buttons {
+    display: flex;
+    margin-left: -25px;
+    justify-content: center; 
+    padding-bottom: 10px;
+}
+
+.action-button {
+    background-color: blue; 
+    border: none; 
+    color: white; 
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border-radius: 6px;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+    margin: 10px; 
+}
+
+.action-button.delete {
+    background-color: red;
+}
+
+.action-button:hover {
+    background-color: navy; 
+}
+
+.action-button.delete:hover {
+    background-color: darkred; 
+}

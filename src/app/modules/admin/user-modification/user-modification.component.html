@@ -1,0 +1,56 @@
+@if (user) {
+    <div class="user">
+        <div class="detail">
+            <div class="prim">
+                <img src="https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png" alt="Imagen de usuario">
+            </div>
+            <div class="seg">
+                <h4><b>Identificador:</b> {{user.id}}</h4>
+                <h4><b>Dirección:</b>  {{user.address}}</h4>
+                <h4><b>Correo electrónico:</b> {{user.email}}</h4>
+                <h4><b>Nombre de usuario:</b> {{user.userName}}</h4>
+                <h4><b>Contraseña:</b> {{user.password}}</h4>
+                <h4><b>Tarjeta de crédito:</b> {{user.creditCard}}</h4>
+                @if (user.role==0) {
+                    <h4><b>Rol:</b> Administrador</h4>
+                } @else {
+                    <h4><b>Rol:</b> Usuario</h4>
+                }
+            </div>
+        </div>
+
+        <div class="updateForm">
+
+            <form [formGroup]="updateUserForm" (submit)="modifyUser(user.id)">
+
+                <h2><b>Ingresar nuevos datos de usuario:</b></h2>
+                <label for="address">Dirección: </label>
+                <input id="address" type="text" formControlName="address">
+        
+                <label for="email">Correo electrónico: </label>
+                <input id="email" type="text" formControlName="email">
+        
+                <label for="userName">Nombre de usuario: </label>
+                <input id="userName" type="text" formControlName="userName">
+        
+                <label for="password">Contraseña: </label>
+                <input id="password" type="text" formControlName="password">
+
+                <label for="creditCard">Tarjeta de credito: </label>
+                <input id="creditCard" type="text" formControlName="creditCard" maxlength="16" minlength="16">
+        
+                <label for="role">Rol: </label>
+                <select id="inputState" class="form-select" formControlName="role">
+                    <option value="0">Administrador</option>
+                    <option value="1">Usuario</option>
+                </select>
+        
+                <button type="submit" class="library-button">Crear nuevo libro</button>  
+            </form>
+        </div>
+    </div>
+} @else {
+    <div class="noUser">
+        <h2>Usuario no encontrado.</h2>
+    </div>
+}

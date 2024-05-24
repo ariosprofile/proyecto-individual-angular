@@ -1,11 +1,12 @@
 <nav class="side-nav">
     <div class="menu">
+        <h3>Bienvenido, {{currentUser?.userName}}!</h3>
         <ul>
-            <li [routerLink]="['/books']">Libros</li>
-            <li>Perfil</li>
+            <li [routerLink]="[userStartPage]">Libros</li>
+            <li [routerLink]="[userProfile, currentUser?.id]">Perfil</li>
             <li>Gestión</li>
             <li>Historial</li>
-            <li>Log out</li>
+            <li [routerLink]="[loginPage]">Cerrar Sesión</li>
         </ul>
     </div>
 </nav>

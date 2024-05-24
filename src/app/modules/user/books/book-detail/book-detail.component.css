@@ -1,0 +1,105 @@
+.book {
+    padding-top: 50px;
+    margin-left: 200px;
+    padding-bottom: 10%;
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.bloque {
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+}
+
+.seg {
+    padding-top: 140px; 
+    margin-left: 20px; 
+}
+
+.seg span {
+    text-decoration: underline; 
+    color: #800000; 
+    font-weight: bold; 
+}
+
+.seg h3 {
+    font-size: 25px; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+
+.prim h2 {
+    padding-left: 21%;
+    font-size: xx-large;
+    font-style: italic;
+}
+
+.prim {
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+    padding-top: 50px;
+}
+
+.options button {
+    background-color: #4CAF50; 
+    border: none; 
+    color: white; 
+    padding: 15px 32px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 12px; 
+    transition-duration: 0.4s; 
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.options button:hover {
+    background-color: #45a049; 
+    color: white; 
+    border-radius: 12px; 
+}
+
+
+.noBook {
+    margin-left: 193px;
+    background-color: antiquewhite;
+    margin-top: -20px;
+    margin-right: -20px;
+    padding-bottom: 100%;
+    padding-top: 20%;
+    text-align: center;
+}
+
+@media (max-width: 950px) {
+    .detail {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0px;
+    }
+
+    .prim {
+        margin-left: 0;
+    }
+
+
+}

@@ -1,0 +1,56 @@
+.newLibraryUserForm {
+    padding-top: 10%;
+    padding-left: 45%;
+    padding-bottom: 20%;
+    background-color: antiquewhite;
+}
+
+.newLibraryUserForm h2 {
+    font-size: 18pt;
+    margin-bottom: 15px;
+  }
+  
+  label, input {
+    display: block;
+  }
+  label {
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12pt;
+  }
+  input {
+    font-size: 16pt;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 400px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid .3px;
+  }
+
+
+.library-button {
+    background-color: #4CAF50; 
+    border: 1px solid #4CAF50; 
+    color: white;
+    padding: 12px 24px; 
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+  }
+  
+  .library-button:hover {
+    background-color: #45a049;
+  }
+
+  .form-select {
+    width: 400px;
+    margin-bottom: 30px;
+  }

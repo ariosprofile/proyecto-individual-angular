@@ -1,0 +1,53 @@
+<div class="user-list">
+    <h2>Usuarios registrados</h2>
+    <div class="options">
+        <div class="optionFormat">
+            <label for="roleSelect">Filtrar por rol</label>
+            <select #searchRole class="roleFilter" id="roleSelect">
+                <option value="" selected>Todos los roles</option>
+                <option value="0">Administrador</option>
+                <option value="1">Usuario</option>
+            </select>
+            <button class="search-button" (click)="searchByRole(searchRole.value)" >Buscar</button>
+        </div>
+        <div class="optionFormat">
+            <label for="usernameInput">Buscar por nombre de usuario</label>
+            <input #searchUsername type="text" id="usernameInput">
+            <button class="search-button" (click)="searchByUserName(searchUsername.value)" >Buscar</button>
+        </div>
+        <div class="optionFormat">
+            <label for="idInput">Buscar por id de usuario</label>
+            <input #searchId type="text" id="idInput">
+            <button class="search-button" (click)="searchById(searchId.value)" >Buscar</button>
+        </div>
+        <div class="optionFormat">
+            <button class="addNewUserButton" [routerLink]="['/admin-view/user-creation']">Añadir nuevo usuario</button>
+        </div>
+    </div>
+    <div class="users">
+            @for (user of libraryUsers; track $index) {
+            <div class="user">
+                    <div class="info">
+                        <img src="https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png" alt="Portada del usuario">
+                        <div class="letters">
+                            <h4><b>Identificador:</b> {{user.id}}</h4>
+                            <h4><b>Nombre de usuario:</b>  {{user.userName}}</h4>
+                             @if (user.role==0) {
+                                 <h4><b>Rol:</b> Administrador</h4>
+                            } @else {
+                                <h4><b>Rol:</b> Usuario</h4>
+                            }
+                            <div class="buttons">
+                                <a [routerLink]="['/admin-view/user-modification/', user.id]">
+                                    <button class="action-button">Modificar</button>
+                                </a>
+                                <button class="action-button delete" (click)="deleteLibraryUser(user.id)">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            } @empty {
+                <h2>No se encontraron usuarios.</h2>
+            }
+    </div>
+</div>
