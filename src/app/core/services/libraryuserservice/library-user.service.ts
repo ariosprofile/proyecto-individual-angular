@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { LibraryUser } from '../../models/library-user';
 import { LIBRARYUSER_ROUTES } from '../../routes/libraryuser-routes';
+import { CONSTANTS } from '../../util/constants';
+
 
 @Injectable({
   providedIn: 'root'
@@ -50,9 +52,9 @@ export class LibraryUserService {
     return this.http.post<LibraryUser>(LIBRARYUSER_ROUTES.login(), loginData).pipe(
       catchError(error => {
         if (error.status === 401) {
-          return throwError('Correo electrónico o contraseña no válidos. Inténtalo de nuevo.');
-        } else {
-          return throwError('Se produjo un error al iniciar sesión. Vuelva a intentarlo más tarde.');
+          return throwError(CONSTANTS.errorMessageIdentification)
+        }else {
+          return throwError(CONSTANTS.errorLogin)
         }
       })
     );

@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { LibraryUserService } from '../../../core/services/libraryuserservice/library-user.service';
 import { Router } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
+import { CONSTANTS } from '../../../core/util/constants';
+import { APP_ROUTES } from '../../../core/routes/aplication-routes';
 
 @Component({
   selector: 'app-login',
@@ -52,12 +54,12 @@ export class LoginComponent implements OnInit, OnDestroy {
       if (user) {
         this.libraryUserService.setUser(user);
         if (user.role == 0) {
-          this.router.navigate(['/admin-view']);
+          this.router.navigate([APP_ROUTES.adminUserList]);
         } else {
-          this.router.navigate(['/user-view']);
+          this.router.navigate([APP_ROUTES.userBookList]);
         }
       } else {
-        this.loginError = 'Email o contraseña no válidos. Inténtalo de nuevo.';
+        this.loginError = CONSTANTS.errorMessageIdentification;
       }
     }
     ));
