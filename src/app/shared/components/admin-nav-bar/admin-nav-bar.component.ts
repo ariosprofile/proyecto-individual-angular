@@ -28,6 +28,10 @@ export class AdminNavBarComponent implements OnInit, OnDestroy{
   ){}
 
   ngOnInit(): void {
+    this.findUserByLocalStorage();
+  }
+
+  findUserByLocalStorage() {
     this.subscriptions.push(
       this.libraryUserService.getLibraryUser(Number(localStorage.getItem('userId'))).subscribe(
         user => this.currentUser = user

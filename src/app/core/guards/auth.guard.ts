@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LibraryUserService } from '../services/libraryuserservice/library-user.service';
+import { APP_ROUTES } from '../routes/aplication-routes';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthGuard  {
     if (userId) {
       return true;
     } else {
-      this.router.navigate(['']);
+      this.router.navigate([APP_ROUTES.loginPage]);
       return false;
     }
   }
