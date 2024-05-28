@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LibraryUser } from '../../../core/models/library-user';
 import { LibraryUserService } from '../../../core/services/libraryuserservice/library-user.service';
 import { APP_ROUTES } from '../../../core/routes/aplication-routes';
@@ -16,21 +16,26 @@ import { SubscriptionLike } from 'rxjs';
 })
 export class NavBarComponent implements OnInit, OnDestroy{
 
-    currentUser: LibraryUser | null = null;
-    subscriptions: SubscriptionLike[] = [];
-    userStartPage = APP_ROUTES.userBookList;
-    userProfile = APP_ROUTES.userDetail;
-    loginPage = APP_ROUTES.loginPage;
+  currentUser: LibraryUser | null = null;
+  subscriptions: SubscriptionLike[] = [];
+  userStartPage = APP_ROUTES.userBookList;
+  userProfile = APP_ROUTES.userDetail;
+  loginPage = APP_ROUTES.loginPage;
 
-    constructor(
-      private libraryUserService : LibraryUserService
-    ){}
+  constructor(
+    private libraryUserService : LibraryUserService,
+    private router : Router
+  ){}
 
   ngOnInit(): void {
+    this.findUserByLocalStorage();
+  }
+
+  findUserByLocalStorage() {
     this.subscriptions.push(
-    this.libraryUserService.userSubject.subscribe(
-      user => this.currentUser = user
-    ));
+      this.libraryUserService.getLibraryUser(Number(localStorage.getItem('userId'))).subscribe(
+        user => this.currentUser = user
+      ));
   }
 
   ngOnDestroy(): void {

@@ -45,21 +45,10 @@ export class UserCreationComponent implements OnInit, OnDestroy{
 
   createUser() {
     if (this.newUserForm.valid) {
-      const newUser : LibraryUser = {
-        address: this.newUserForm.value.address ?? '',
-        email: this.newUserForm.value.email ?? '',
-        password: this.newUserForm.value.password ?? '',
-        userName: this.newUserForm.value.userName ?? '',
-        creditCard: this.newUserForm.value.creditCard ?? '',
-        role: this.newUserForm.value.role ?? '',
-        leasedBooksIds: []
-      };
-
     this.subscriptions.push(
-    this.libraryUserService.createLibraryUser(newUser).subscribe(      
+    this.libraryUserService.createLibraryUser(this.newUserForm.value).subscribe(      
     () => {
       this.newUserForm.reset();
-      console.log("Usuario creado correctamente.")
     }
     ));
   }

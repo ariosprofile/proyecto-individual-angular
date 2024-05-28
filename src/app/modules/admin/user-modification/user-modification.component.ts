@@ -54,7 +54,7 @@ export class UserModificationComponent implements OnInit, OnDestroy{
       this.libraryUserService.getLibraryUser(id).subscribe(user => this.user = user));
     }
 
-    modifyUser(idUser : number | undefined) : void{
+    modifyUser(idUser : number) : void{
       if (this.updateUserForm.valid) {
         const updatedUser : LibraryUser = {
           id: idUser,

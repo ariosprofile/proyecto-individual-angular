@@ -1,5 +1,6 @@
 <nav class="side-nav">
     <div class="menu">
+        <h3>Bienvenido, {{currentUser?.userName}}!</h3>
         <ul>
             <li [routerLink]="[adminStartPage]">Gestionar Usuarios</li>
             <li [routerLink]="[adminBookCrud]">Gestionar Libros</li>

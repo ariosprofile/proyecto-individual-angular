@@ -11,9 +11,6 @@ import { CONSTANTS } from '../../util/constants';
 })
 export class LibraryUserService {
 
-  private user!: LibraryUser;
-  userSubject: BehaviorSubject<LibraryUser | null> = new BehaviorSubject<LibraryUser| null >(null);
-
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -50,9 +47,8 @@ export class LibraryUserService {
     return this.http.put<LibraryUser>(LIBRARYUSER_ROUTES.update(id), libraryUser, this.httpOptions);
   }
 
-  loginUser(userName: string, password: string): Observable<LibraryUser>{
-
-    const loginData = {userName, password};
+  loginUser(userName: string, password: string): Observable<LibraryUser> {
+    const loginData = { userName, password };
     return this.http.post<LibraryUser>(LIBRARYUSER_ROUTES.login(), loginData).pipe(
       catchError(error => {
         if (error.status === 401) {
@@ -65,7 +61,10 @@ export class LibraryUserService {
   }
 
   setUser(user: LibraryUser) {
-    this.user = user;
-    this.userSubject.next(user);
+    localStorage.setItem('userId', user.id.toString());
+  }
+
+  logoutUser() {
+    localStorage.removeItem('userId');
   }
 }
