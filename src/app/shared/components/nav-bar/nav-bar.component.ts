@@ -24,7 +24,6 @@ export class NavBarComponent implements OnInit, OnDestroy{
 
   constructor(
     private libraryUserService : LibraryUserService,
-    private router : Router
   ){}
 
   ngOnInit(): void {
