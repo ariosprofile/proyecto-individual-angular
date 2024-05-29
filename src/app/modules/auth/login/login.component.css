@@ -6,6 +6,14 @@
   background-color: antiquewhite;
 }
 
+.login-tittle {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: bisque;
+  border-bottom: 2px solid brown;
+  text-align: center;
+}
+
 .form {
   border: 2px solid black;
   border-radius: 10px;
@@ -14,6 +22,10 @@
   max-width: 400px; 
   width: 100%;
   box-sizing: border-box;
+}
+
+.form h2 {
+  text-decoration: underline;
 }
 
 label {
@@ -33,6 +45,15 @@ input {
   border: none;
   border-bottom: solid 0.3px #ccc;
   font-size: 16pt;
+}
+
+.button-create {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.button-create:hover {
+  color: #45a049;
 }
 
 .library-button {

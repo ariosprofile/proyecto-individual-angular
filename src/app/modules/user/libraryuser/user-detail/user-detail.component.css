@@ -1,0 +1,42 @@
+.user-detail-container {
+    margin-left: 200px;
+    padding: 20px;
+    padding-left: 2%;
+    padding-bottom: 15%;
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+  }
+  
+  .user-detail-container h2 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    background-color: brown;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #555;
+  }
+  

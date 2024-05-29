@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LibraryUserService } from '../../../core/services/libraryuserservice/library-user.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
 import { CONSTANTS } from '../../../core/util/constants';
 import { APP_ROUTES } from '../../../core/routes/aplication-routes';
@@ -10,7 +10,10 @@ import { APP_ROUTES } from '../../../core/routes/aplication-routes';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    RouterModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -19,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   subscriptions: SubscriptionLike[] = [];
   loginError: string | null = null;
+  registrationPage = APP_ROUTES.registerPage;
 
   constructor(
     private libraryUserService : LibraryUserService,
@@ -43,7 +47,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   checkLogin(){
-
     if (this.loginForm.invalid){
       return;
     }
